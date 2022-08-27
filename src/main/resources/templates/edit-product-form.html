@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+
+<style>
+    .submit1 {
+        background-color: #008CBA;
+        padding: 14px 100px;
+        color: white;
+        font-size: 15pt;
+        border-radius: 12px;
+    }
+
+</style>
+</head>
+<body>
+
+<br>
+<br>
+<div class="container-md">
+
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Головна</a></li>
+            <li class="breadcrumb-item"><a href="/app/products/list">Список продуктів</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Створіть новий продукт</li>
+        </ol>
+    </nav>
+
+    <br>
+
+    <div class="card-body">
+        <h1 class="card-title">Введіть новий товар </h1>
+        <br>
+        <div class="mb-3">
+            <form action="#" th:action="@{/app/products/create-new}" method="post" th:object="${product}">
+                <label class="col-form-label">Назва товару:</label>
+
+                <input class="form-control form-control-sm" type="text" th:field="*{name}"/><br/>
+
+                <label class="col-form-label">Ціна:</label>
+
+                <input class="form-control form-control-sm" type="text" th:field="*{price}" placeholder="00.00"/><br/>
+
+                <label class="col-form-label">Виробник:</label>
+
+                <select class="form-select form-select-sm" th:name="producer" required="required">
+                    <option th:each="p : ${allProducers}" th:text="${p.name}" th:value="${p.id}">
+                    </option>
+                </select>
+                <br>
+
+                <button type="submit" class="submit1">Записати</button>
+                <input type="hidden" th:field="*{id}"/>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
