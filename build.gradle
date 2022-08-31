@@ -8,7 +8,7 @@ apply plugin: 'eclipse'
 
 group = 'com.goitcd5'
 version = '0.0.1-SNAPSHOT'
-//sourceCompatibility = 11
+sourceCompatibility = 10
 
 configurations {
     compileOnly {
