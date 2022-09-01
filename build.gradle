@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id "com.moowork.node" version "1.3.1"
 }
+
 apply plugin: 'eclipse'
 
 group = 'com.goitcd5'
@@ -48,7 +49,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security:2.7.3'
 
 }
-
+defaultTasks "clean", "build", "installApp"
 tasks.named('test') {
     useJUnitPlatform()
 }
